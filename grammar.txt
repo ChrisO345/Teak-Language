@@ -1,0 +1,8 @@
+fun myFunction() {
+
+}
+
+out "output"
+
+get "input"
+
