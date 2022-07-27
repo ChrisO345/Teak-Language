@@ -1,8 +1,52 @@
-fun myFunction() {
+# This is a comment
 
-}
+var x = 2  # variable declaration
 
-out "output"
+var y = get("")  # input
 
-get "input"
+out(y)  # output
 
+var a = get("Name")  # input with prompt
+
+out()  # new line output
+
+if 5 == 6 do out("part 1") elif 6 == 7 do out("part 2") else out("part 3")  # if, elif else statement single line
+
+# if elif else end on multiple lines
+if 5 == 6 do
+    out("part 2.1")
+elif 6 == 7 do
+    out("part 2.2")
+else
+    out("part 2.3")
+end
+
+# single step for loop
+for i = 0 -> 5 do
+    # continue around loop to next value of i
+    if i == 2 do continue else out(i)
+end
+
+# variable step for loop
+for i = 0 -> 10 :: 2 do
+    out(i)
+    # break out of for loop
+    if i == 8 do break
+end
+
+var b = 9
+# while loop
+while b != 0 do
+    b = b - 1
+end
+
+# function
+fun new(n)
+    # returns variable n x 2
+    return n*2
+end
+out(new(2))
+
+
+
+# run("grammar.txt")
