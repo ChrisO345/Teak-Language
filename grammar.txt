@@ -27,17 +27,18 @@ for i = 0 -> 5 do
     if i == 2 do continue else out(i)
 end
 
+out("here")
+
+while var b != 0 do
+    b = b - 1
+end
+
+
 # variable step for loop
 for i = 0 -> 10 :: 2 do
     out(i)
     # break out of for loop
     if i == 8 do break
-end
-
-var b = 9
-# while loop
-while b != 0 do
-    b = b - 1
 end
 
 # function

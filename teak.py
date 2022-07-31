@@ -104,6 +104,7 @@ class Position:
 # TOKENS
 #######################################
 
+
 TT_INT = 'INT'
 TT_FLOAT = 'FLOAT'
 TT_STRING = 'STRING'
@@ -144,6 +145,7 @@ KEYWORDS = [
     '::',
     'while',
     'fun',
+    'as',
     'do',
     'end',
     'return',
@@ -204,7 +206,7 @@ class Lexer:
                 tokens.append(self.make_number())
             elif self.current_char in LETTERS + ":":
                 tokens.append(self.make_identifier())
-            elif self.current_char == '"':
+            elif self.current_char in '"':
                 tokens.append(self.make_string())
             elif self.current_char == '+':
                 tokens.append(Token(TT_PLUS, pos_start=self.pos))
@@ -593,7 +595,7 @@ class Parser:
         return self.current_tok
 
     def update_current_tok(self):
-        if self.tok_idx >= 0 and self.tok_idx < len(self.tokens):
+        if 0 <= self.tok_idx < len(self.tokens):
             self.current_tok = self.tokens[self.tok_idx]
 
     def parse(self):
@@ -710,7 +712,7 @@ class Parser:
         if res.error:
             return res.failure(InvalidSyntaxError(
                 self.current_tok.pos_start, self.current_tok.pos_end,
-                "Expected 'var', 'if', 'for', 'while', 'fun', int, float, identifier, '+', '-', '(', '[' or 'not'"
+                "Expected 'var', 'let', 'if', 'for', 'while', 'fun', int, float, identifier, '+', '-', '(', '[' or 'not'"
             ))
 
         return res.success(node)
